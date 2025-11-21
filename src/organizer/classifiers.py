@@ -27,10 +27,8 @@ def get_default_size_thresholds():
 def classify_by_type(file_info):
     """Return category name based on file extension."""
     extension = file_info["ext"].lower()
-    print(extension)
     ext_map = get_default_extension_map()
     for category in ext_map:
-        print()
         if extension in ext_map[category]:
             return category
     return "Others"
@@ -50,3 +48,16 @@ def classify_by_date(file_info):
     strTime = datetime.fromtimestamp(date).strftime('%Y-%m-%d %H:%M:%S')
     listTime = strTime.split(" ")
     return str(listTime[0])
+
+# get_mime_or_ext_mapping() to map extensions to categories (png/jpg -> Images, pdf/docx -> Documents).
+
+def pick_classification(file_info, mode):
+    match mode:
+        case "type":
+           return classify_by_type(file_info)
+        case "size":
+           return classify_by_size(file_info)
+        case "date":
+           return classify_by_date(file_info)
+        case _:
+            raise ValueError(f"Invalid mode: {mode}")

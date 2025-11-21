@@ -1,0 +1,47 @@
+A file containing a set of functions you want to include in your application.
+o create a module just save the code you want in a file with the file extension .py:
+or use built in modules
+help("modules") and print for full list of modules
+pickle is used for serialization
+to find all methods of that module help("pickle")
+import math as m
+math.pi
+from math import pi
+print(pi)
+Module: a single .py file with reusable code.
+Package: a directory containing multiple modules with an __init__.py file.
+_________________________________________
+SCOPES
+variable scope is where a variable is visible and accessible
+scope resolution  LEGB local -> enclosed -> Global -> built-in
+def func1():
+  a=1
+  def func3():
+    a=3
+    print(a)
+  func3()=> prints 3, if func3 has no a, prints 1  local -> enclosed if no x in func1 too searches global
+
+def func2():
+  b=2
+  print(b)
+a is local to func1 func 1 cannot print b
+_____________________________________________
+if __name__ == "__main__"
+if dunder __name__ equals dunder __main__ it means that this script can be imported or run as standalone
+_________________________________________
+dunder stands 4 double underscore
+They are special method names (also called magic methods or special methods) that 
+Python uses internally to give classes certain built-in behaviors.
+THEY ALLOW THE DEVELOPER TO DEFINE AND CUSTOMZE THE BEHAVIOUR OF OBJS
+__init__ is used to construct or create a new object
+everything you create in python is really on obj, so a str is a Str
+type(func1)=> class "function" instance of object of class function
+new_str=str1+str2 => __add__()
+len(str)=>string class there is a __len__() method
+__str__ vs __repr__
+
+_________________________________________
+CONTEXT managers
+all syntx in py maps back to a dunder method
+with is a context manager as variable names
+when we do this we utilize a context manager 
